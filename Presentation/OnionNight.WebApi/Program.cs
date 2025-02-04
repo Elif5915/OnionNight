@@ -1,6 +1,16 @@
+using OnionNight.Application.Features.CQRS.Handlers;
+using OnionNight.Persistence.Context;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<OnionContext>();
+
+builder.Services.AddScoped<CreateCategoryCommandHandler>();
+builder.Services.AddScoped<UpdateCategoryCommandHandler>();
+builder.Services.AddScoped<RemoveCategoryCommandHandler>();
+builder.Services.AddScoped<GetCategoryQueryHandler>();
+builder.Services.AddScoped<GetCategoryByIdQueryHandler>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
