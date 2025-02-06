@@ -12,6 +12,8 @@ builder.Services.AddScoped<RemoveCategoryCommandHandler>();
 builder.Services.AddScoped<GetCategoryQueryHandler>();
 builder.Services.AddScoped<GetCategoryByIdQueryHandler>();
 
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(IConfiguration).Assembly));
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
